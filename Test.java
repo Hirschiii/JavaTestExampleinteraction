@@ -123,8 +123,8 @@ public class Test {
                 String expected = expectedLines.get(expectedIdx).trim();
                 String actual = actualLines[actualIdx].trim();
 
-                // Überspringe leere Zeilen im tatsächlichen Output (falls vorhanden)
-                if (expected.startsWith("> ") || expected.startsWith("%> ")) {
+                // Überspringe zeilen mit Input
+                if (expected.startsWith("> ")) {
                     if (commandRunning) {
                         System.err.println("-----------------------------------");
                         System.err.println("Passed   : %s".formatted(runningCommand));
@@ -138,6 +138,10 @@ public class Test {
 
                     expectedIdx++;
                     continue;
+                }
+
+                // Settings / flags
+                if (expected.startsWith("%> ")) {
                 }
 
                 // System.err.println("ACT: %s".formatted(actualLines[actualIdx]));
@@ -173,7 +177,8 @@ public class Test {
     }
 
     private static void printErrorMessage(List<String> expected, String[] actual, int actualLine, int expectedLine) {
-        int min = Math.min(10, expectedLine);
+        int min = Math.min(12, expectedLine);
+        int max = Math.min(12, expected.size() - expectedLine);
         System.err.println("\n--- TEST FEHLGESCHLAGEN ---");
         System.err.println("IN E LINE: \"" + (expectedLine + 1) + "\"");
         System.err.println("IN A LINE: \"" + (actualLine + 1) + "\"");
@@ -187,6 +192,9 @@ public class Test {
         System.err.println("%03d : %s".formatted(actualLine, actual[actualLine]));
         // System.err.println(actual[actualLine]);
         System.err.println("      ^^^^^^^^^");
+        for (int i = actualLine + 1; i < actualLine + max; i++) {
+            System.err.println("%03d : %s".formatted(i, actual[i]));
+        }
 
     }
 }
