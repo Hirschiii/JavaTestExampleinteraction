@@ -125,14 +125,15 @@ public class Test {
 
                 // Überspringe leere Zeilen im tatsächlichen Output (falls vorhanden)
                 if (expected.startsWith("> ") || expected.startsWith("%> ")) {
-                    if (verbose) {
-                        if (commandRunning) {
-                            System.err.println("Passed: %s".formatted(runningCommand));
-                            runningCommand = expected.substring(2);
-                        } else {
-                            commandRunning = true;
-                            runningCommand = expected.substring(2);
-                        }
+                    if (commandRunning) {
+                        System.err.println("-----------------------------------");
+                        System.err.println("Passed   : %s".formatted(runningCommand));
+                        runningCommand = expected.substring(2);
+                        System.err.println("Test next: %s".formatted(runningCommand));
+                        System.err.println("-----------------------------------");
+                    } else {
+                        commandRunning = true;
+                        runningCommand = expected.substring(2);
                     }
 
                     expectedIdx++;
