@@ -8,7 +8,7 @@
 java test.Test verbose={true|false} test={path to exampleinteraction}
 ```
 
-# The example interactions
+# The test file
 
 The example interactions are simple text files containing to class to test,
 possible arguments to start the main method and all the input with the expected
