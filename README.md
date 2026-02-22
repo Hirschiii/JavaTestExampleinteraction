@@ -5,7 +5,7 @@
 # Usage
 
 ```sh
-java test.Test verbose={true|false} test={path to exampleinteraction}
+java Test verbose={true|false} test={path to exampleinteraction}
 ```
 
 # The test file
