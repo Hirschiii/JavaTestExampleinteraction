@@ -35,7 +35,7 @@ program.
 If the option `verbose` is set to `false` only the passed *tests* (the inputs)
 will be printed and, on fail, the fail message. 
 
-An example faile message looks the following:
+An example fail message looks the following:
 
 ```txt
 --- TEST FEHLGESCHLAGEN ---
@@ -53,4 +53,4 @@ It contains:
 - The expected line (`ERWARTET`)
 - and the actual line from your program (`GEFUNDEN`)
 
-beneath that you get a little context, the last 10 lines from the program output.
+Beneath that you get a little context, the last 10 lines from the program output.
