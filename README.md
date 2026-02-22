@@ -4,8 +4,10 @@
 
 # Usage
 
+Clone this repo into your root java package and then just compile and run the class as follows:
+
 ```sh
-java Test verbose={true|false} test={path to exampleinteraction}
+java test.Test verbose={true|false} test={path to exampleinteraction}
 ```
 
 # The test file
