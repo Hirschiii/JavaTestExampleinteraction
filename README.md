@@ -10,6 +10,15 @@ Clone this repo into your root java package and then just compile and run the cl
 java test.Test verbose={true|false} test={path to exampleinteraction}
 ```
 
+## It is not a bug, it's a feature
+
+The program only tests, if the expected line some where appears in the actual
+output.
+
+If the example interaction expects the line `<no unit>`, it will match, **with
+no error**, for example the line `No unit on D3: <no unit>`. That way you can
+still print out your debug information, without failing previous tests.
+
 # The test file
 
 The example interactions are simple text files containing to class to test,
